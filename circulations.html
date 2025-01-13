@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulations</title>
+
+    <!-- utilisation de leaflet pour la carte -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Nancy'clable</h1>
+        <div id="location-info"></div>
+    </header>
+    <main>
+
+        <section id="meteo-air-quality-section">
+            <div id="weather-info">
+            </div>
+
+            <section id="pollution-section">
+                <div id="air-quality"></div>
+            </section>
+        </section>
+
+        <section id="map-section">
+            <h2>Carte des stations de vélos</h2>
+            <div id="map"></div>
+            <div id="map-info-bubble"><span>ℹ️ Cliquez sur les marqueurs pour avoir le nombre de vélos et de places disponibles des stations</span></div>
+        </section>
+
+        <section id="covid-section">
+            <h2>Le Covid autour de chez vous</h2>
+            <div id="covid-recommendation"></div>
+            <div id="covid-charts">
+                <canvas id="covid-chart-txpos"></canvas>
+                <canvas id="covid-chart-hosp"></canvas>
+                <canvas id="covid-chart-rea"></canvas>
+                <canvas id="covid-chart-maxeville"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Sources des données :</h3>
+        <ul id="api-sources">
+            <ul id="api-sources">
+                <li><a href="https://api-adresse.data.gouv.fr/reverse/">API Adresse - Géolocalisation</a></li>
+                <li><a href="http://ip-api.com/json/">IP-API - Géolocalisation IP</a></li>
+                <li><a href="https://www.infoclimat.fr/public-api/gfs/xml">InfoClimat - Météo</a></li>
+                <li><a href="https://api.cyclocity.fr/contracts/nancy/gbfs/station_information.json">Cyclocity - Stations de vélos</a></li>
+                <li><a href="https://api.cyclocity.fr/contracts/nancy/gbfs/station_status.json">Cyclocity - Disponibilité des vélos</a></li>
+                <li><a href="https://services3.arcgis.com/Is0UwT37raQYl9Jj/arcgis/rest/services/ind_grandest/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=">ArcGIS - Qualité de l'air</a></li>
+                <li><a href="https://www.data.gouv.fr/fr/datasets/r/5c4e1452-3850-4b59-b11c-3dd51d7fb8b5">Data.gouv.fr - Données COVID-19</a></li>
+                <li><a href="https://www.data.gouv.fr/fr/datasets/r/2963ccb5-344d-4978-bdd3-08aaf9efe514">Data.gouv.fr - Données COVID-19 dans les eaux usées</a></li>
+            </ul>
+        </ul>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Script -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
